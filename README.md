@@ -6,12 +6,13 @@ This library adheres to [SemVer](http://semver.org). Pre v1.0.0 is considered al
 
 ## Development Setup
 
-Note: this assumes you have a JDK installed and configured. If not, look [here](https://developer.atlassian.com/display/DOCS/Set+up+the+SDK+Prerequisites+for+Linux+or+Mac)
+This project assumes you have a JDK installed and configured. If not, look [here](https://developer.atlassian.com/display/DOCS/Set+up+the+SDK+Prerequisites+for+Linux+or+Mac)
 
+You will also need to have Maven installed and configured. Please visit [here](https://maven.apache.org/run-maven/index.html) for setup instructions.
 
-### Installation
+## Installation
 
-  1. run maven repository install script ```./install_dep.sh``` to build and configure the dependency
+run maven repository install script ```./install_dep.sh``` to build and configure the dependency
   
 ## Reporting Bugs
 Please use the issue trackers for the plugins to log tickets
