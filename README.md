@@ -14,9 +14,10 @@ Note: this assumes you have a JDK installed and configured. If not, look [here](
   1. run maven repository install script ```./install_dep.sh``` to build and configure the dependency
   
 ## Reporting Bugs
-  Please use the issue trackers for the plugins to log tickets
-    * [Jira Plugin](https://github.com/bitium/jira-saml-plugin/issues)
-    * [Confluence Plugin](https://github.com/bitium/confluence-saml-plugin/issues) 
+Please use the issue trackers for the plugins to log tickets
+
+  * [Jira Plugin](https://github.com/bitium/jira-saml-plugin/issues)
+  * [Confluence Plugin](https://github.com/bitium/confluence-saml-plugin/issues) 
 
 ## Contributing
 
