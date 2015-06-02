@@ -13,32 +13,34 @@ import org.springframework.security.saml.metadata.MetadataMemoryProvider;
 
 public class SpMetadataGenerator {
 	public MetadataProvider generate(SAMLConfig configuration) throws ServletException, MetadataProviderException {
-		MetadataGenerator generator = new MetadataGenerator();
-		generator.setKeyManager(new EmptyKeyManager());
-		generator.setSignMetadata(false);
-		
-        // Defaults
-        String alias = configuration.getAlias();
-        String baseURL = configuration.getBaseUrl();
+	
+    MetadataGenerator generator = new MetadataGenerator();
+    generator.setKeyManager(new EmptyKeyManager());
 
-        generator.setEntityAlias(alias);
-        generator.setEntityBaseURL(baseURL);
+    // Defaults
+    String alias = configuration.getAlias();
+    String baseURL = configuration.getBaseUrl();
 
-        // Use default entityID if not set
-        if (generator.getEntityId() == null) {
-            generator.setEntityId(configuration.getSpEntityId());
-        }
-        
-        Configuration.getGlobalSecurityConfiguration().getKeyInfoGeneratorManager().getManager("MetadataKeyInfoGenerator");
-        
-        EntityDescriptor descriptor = generator.generateMetadata();
-        ExtendedMetadata extendedMetadata = generator.generateExtendedMetadata();
-        extendedMetadata.setRequireLogoutRequestSigned(false);
+    generator.setEntityBaseURL(baseURL);
 
-        MetadataMemoryProvider memoryProvider = new MetadataMemoryProvider(descriptor);
-        memoryProvider.initialize();
-        MetadataProvider spMetadataProvider = new ExtendedMetadataDelegate(memoryProvider, extendedMetadata);
+    // Use default entityID if not set
+    if (generator.getEntityId() == null) {
+        generator.setEntityId(configuration.getSpEntityId());
+    }
+    
+    Configuration.getGlobalSecurityConfiguration().getKeyInfoGeneratorManager().getManager("MetadataKeyInfoGenerator");
+    
+    EntityDescriptor descriptor = generator.generateMetadata();
+    ExtendedMetadata extendedMetadata = generator.generateExtendedMetadata();
+    extendedMetadata.setRequireLogoutRequestSigned(false);
+    extendedMetadata.setSignMetadata(false);
+    extendedMetadata.setAlias(alias);
+
+    MetadataMemoryProvider memoryProvider = new MetadataMemoryProvider(descriptor);
+    memoryProvider.initialize();
+    MetadataProvider spMetadataProvider = new ExtendedMetadataDelegate(memoryProvider, extendedMetadata);
+    
+    return spMetadataProvider;
         
-        return spMetadataProvider;
 	}
 }
