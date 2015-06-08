@@ -1,5 +1,8 @@
 package com.bitium.saml;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.servlet.ServletException;
 
 import org.opensaml.saml2.metadata.EntityDescriptor;
@@ -22,6 +25,9 @@ public class SpMetadataGenerator {
     String baseURL = configuration.getBaseUrl();
 
     generator.setEntityBaseURL(baseURL);
+    List<String> ssoBindings = new ArrayList<String>();
+    ssoBindings.add("post");
+    generator.setBindingsSSO(ssoBindings);
 
     // Use default entityID if not set
     if (generator.getEntityId() == null) {
