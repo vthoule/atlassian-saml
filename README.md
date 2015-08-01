@@ -12,7 +12,7 @@ You will also need to have Maven installed and configured. Please visit [here](h
 
 ## Installation
 
-run maven repository install script ```./install_dep.sh``` to build and configure the dependency
+run `mvn clean install`
   
 ## Reporting Bugs
 Please use the issue trackers for the plugins to log tickets
