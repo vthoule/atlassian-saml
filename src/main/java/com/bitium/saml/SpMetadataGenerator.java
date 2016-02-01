@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.servlet.ServletException;
 
+import com.bitium.saml.config.SAMLConfig;
 import org.opensaml.saml2.metadata.EntityDescriptor;
 import org.opensaml.saml2.metadata.provider.MetadataProvider;
 import org.opensaml.saml2.metadata.provider.MetadataProviderException;

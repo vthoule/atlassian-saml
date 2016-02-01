@@ -5,6 +5,7 @@ import static junit.framework.Assert.assertFalse;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
+import com.bitium.saml.config.SAMLConfig;
 import org.junit.Test;
 import org.opensaml.DefaultBootstrap;
 import org.opensaml.common.xml.SAMLConstants;
@@ -16,9 +17,6 @@ import org.opensaml.saml2.metadata.provider.MetadataProvider;
 import org.opensaml.saml2.metadata.provider.MetadataProviderException;
 import org.opensaml.util.resource.ResourceException;
 import org.opensaml.xml.ConfigurationException;
-
-import com.bitium.saml.SAMLConfig;
-import com.bitium.saml.IdpMetadataGenerator;
 
 public class IdpMetadataGeneratorTest {
 	@Test

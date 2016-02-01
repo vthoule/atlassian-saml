@@ -1,5 +1,6 @@
 package com.bitium.saml;
 
+import com.bitium.saml.config.SAMLConfig;
 import org.opensaml.Configuration;
 import org.opensaml.common.SAMLObjectBuilder;
 import org.opensaml.common.xml.SAMLConstants;
