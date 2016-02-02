@@ -33,6 +33,12 @@
 			<scope>provided</scope> <!-- Uses the application's SAL instead of bundling it into the plugin. -->
 		</dependency>
 		<dependency>
+			<groupId>com.atlassian.seraph</groupId>
+			<artifactId>atlassian-seraph</artifactId>
+			<version>2.6.3</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
 			<groupId>org.springframework.security.extensions</groupId>
 			<artifactId>spring-security-saml2-core</artifactId>
 			<version>1.0.0.RELEASE</version>
