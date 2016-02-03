@@ -127,12 +127,16 @@ public abstract class SsoLoginServlet extends HttpServlet {
     }
 
     protected void redirectToSuccessfulAuthLandingPage(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        if(request.getSession() != null && request.getSession().getAttribute(OS_DESTINATION_KEY) != null) {
-            String os_destination = request.getSession().getAttribute(OS_DESTINATION_KEY).toString();
-            response.sendRedirect(saml2Config.getBaseUrl() + os_destination);
-        } else {
-            response.sendRedirect(getDashboardUrl());
+        String redirectUrl = saml2Config.getRedirectUrl();
+        if (redirectUrl == null || redirectUrl.equals("")) {
+            if(request.getSession() != null && request.getSession().getAttribute(OS_DESTINATION_KEY) != null) {
+                String os_destination = request.getSession().getAttribute(OS_DESTINATION_KEY).toString();
+                redirectUrl = saml2Config.getBaseUrl() + os_destination;
+            } else {
+                redirectUrl = getDashboardUrl();
+            }
         }
+        response.sendRedirect(redirectUrl);
     }
 
     protected void redirectToLoginWithSAMLError(HttpServletResponse response, Exception exception, String string) throws ServletException {
