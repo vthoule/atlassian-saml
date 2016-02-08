@@ -19,6 +19,7 @@ public class SAMLConfig {
     public static final String IDP_REQUIRED_SETTING = "saml2.idpRequired";
     public static final String REDIRECT_URL_SETTING = "saml2.redirectUrl";
     public static final String AUTO_CREATE_USER_SETTING = "saml2.autoCreateUser";
+    public static final String AUTO_CREATE_USER_DEFAULT_GROUP_SETTING = "saml2.autoCreateUserDefaultGroup";
 
     public void setPluginSettingsFactory(PluginSettingsFactory pluginSettingsFactory) {
         this.pluginSettings = pluginSettingsFactory.createGlobalSettings();
@@ -52,6 +53,14 @@ public class SAMLConfig {
         pluginSettings.put(REDIRECT_URL_SETTING, redirectUrl);
     }
 
+    public void setAutoCreateUser(String autoCreateUser) {
+        pluginSettings.put(AUTO_CREATE_USER_SETTING, autoCreateUser);
+    }
+
+    public void setAutoCreateUserDefaultGroupSetting(String autoCreateUserDefaultGroupSetting) {
+        pluginSettings.put(AUTO_CREATE_USER_DEFAULT_GROUP_SETTING, autoCreateUserDefaultGroupSetting);
+    }
+
     public String getIdpRequired() {
         return StringUtils.defaultString((String)pluginSettings.get(IDP_REQUIRED_SETTING));
     }
@@ -64,10 +73,6 @@ public class SAMLConfig {
         }
     }
 
-    public void setAutoCreateUser(String autoCreateUser) {
-        pluginSettings.put(AUTO_CREATE_USER_SETTING, autoCreateUser);
-    }
-
     public String getAutoCreateUser() {
         return StringUtils.defaultString((String)pluginSettings.get(AUTO_CREATE_USER_SETTING));
     }
@@ -78,6 +83,10 @@ public class SAMLConfig {
         } else {
             return false;
         }
+    }
+
+    public String getAutoCreateUserDefaultGroupSetting() {
+        return StringUtils.defaultString((String)pluginSettings.get(AUTO_CREATE_USER_DEFAULT_GROUP_SETTING));
     }
 
     public String getLoginUrl() {
