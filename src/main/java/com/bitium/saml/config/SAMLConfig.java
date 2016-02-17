@@ -57,8 +57,8 @@ public class SAMLConfig {
         pluginSettings.put(AUTO_CREATE_USER_SETTING, autoCreateUser);
     }
 
-    public void setAutoCreateUserDefaultGroupSetting(String autoCreateUserDefaultGroupSetting) {
-        pluginSettings.put(AUTO_CREATE_USER_DEFAULT_GROUP_SETTING, autoCreateUserDefaultGroupSetting);
+    public void setAutoCreateUserDefaultGroup(String autoCreateUserDefaultGroup) {
+        pluginSettings.put(AUTO_CREATE_USER_DEFAULT_GROUP_SETTING, autoCreateUserDefaultGroup);
     }
 
     public String getIdpRequired() {
@@ -85,7 +85,7 @@ public class SAMLConfig {
         }
     }
 
-    public String getAutoCreateUserDefaultGroupSetting() {
+    public String getAutoCreateUserDefaultGroup() {
         return StringUtils.defaultString((String)pluginSettings.get(AUTO_CREATE_USER_DEFAULT_GROUP_SETTING));
     }
 
@@ -128,5 +128,4 @@ public class SAMLConfig {
     public String getSpEntityId() {
         return defaultBaseURL + "/" + getAlias();
     }
-
 }
