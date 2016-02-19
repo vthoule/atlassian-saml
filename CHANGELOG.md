@@ -5,7 +5,7 @@ All notable changes to this project will be documented in this file. [All Releas
 ### Changed
 - Start following [SemVer](http://semver.org) properly.
 
-## [1.1] - 2015-02-18
+## [1.1] - 2016-02-18
 ### Added
 - Spring Framework security files
 - Refactored common SAMLConfig, SsoLoginServlet and SsoLogoutServlet logic from the Jira and Confluence plugins
