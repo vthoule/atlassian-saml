@@ -21,11 +21,11 @@ Please use the issue trackers for the plugins to log tickets
   * [Confluence Plugin](https://github.com/bitium/confluence-saml-plugin/issues) 
 
 ## Contributing
-
+Submit your pull request to the [develop](https://github.com/bitium/atlassian-saml/tree/develop) branch. This allows us to merge your change into our internal master and then push out the change in the next release.
   1. Fork it
-  2. Create your feature branch (`git checkout -b my-new-feature`)
+  2. Create your feature branch off develop (`git checkout -b feature/my-new-feature develop`)
   3. Commit your changes (`git commit -am 'Add some feature'`)
-  4. Push to the branch (`git push origin my-new-feature`)
+  4. Push to the branch (`git push origin feature/my-new-feature`)
   5. Create new Pull Request
 
 ## Licensing
