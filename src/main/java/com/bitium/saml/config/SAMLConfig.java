@@ -4,6 +4,7 @@ import org.apache.commons.lang.StringUtils;
 
 import com.atlassian.sal.api.pluginsettings.PluginSettings;
 import com.atlassian.sal.api.pluginsettings.PluginSettingsFactory;
+import java.lang.Number;
 
 public class SAMLConfig {
 
@@ -63,11 +64,12 @@ public class SAMLConfig {
     }
 	
 	public void setMaxAuthenticationAge(long maxAuthenticationAge) {
-		pluginSettings.put(MAX_AUTHENTICATION_AGE, maxAuthenticationAge);
+		pluginSettings.put(MAX_AUTHENTICATION_AGE, String.valueOf(maxAuthenticationAge));
 	}
 	
 	public long getMaxAuthenticationAge() {
-		return (long)pluginSettings.get(MAX_AUTHENTICATION_AGE);
+		String value=StringUtils.defaultString((String)pluginSettings.get(MAX_AUTHENTICATION_AGE));
+		return value==""?Long.MIN_VALUE:Long.parseLong(value);
 	}
 	
     public String getIdpRequired() {
@@ -112,7 +114,7 @@ public class SAMLConfig {
 
     public String getUidAttribute() {
         return StringUtils.defaultString((String)pluginSettings.get(UID_ATTRIBUTE_SETTING), "NameID");
-    }l
+    }
 
     public String getX509Certificate() {
         return StringUtils.defaultString((String)pluginSettings.get(X509_CERTIFICATE_SETTING));
