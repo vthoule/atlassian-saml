@@ -54,7 +54,8 @@ public abstract class SsoLoginServlet extends HttpServlet {
             options.setIncludeScoping(false);
 
             // Send request
-            WebSSOProfile webSSOprofile = new WebSSOProfileImpl(context.getSamlProcessor(), context.getMetadataManager());
+            WebSSOProfileImpl webSSOprofile = new WebSSOProfileImpl(context.getSamlProcessor(), context.getMetadataManager());
+			webSSOprofile.setMaxAuthenticationAge(saml2Config.getMaxAuthenticationAge());
             webSSOprofile.sendAuthenticationRequest(messageContext, options);
         } catch (Exception e) {
             redirectToLoginWithSAMLError(response, e, "general");

@@ -20,6 +20,7 @@ public class SAMLConfig {
     public static final String REDIRECT_URL_SETTING = "saml2.redirectUrl";
     public static final String AUTO_CREATE_USER_SETTING = "saml2.autoCreateUser";
     public static final String AUTO_CREATE_USER_DEFAULT_GROUP_SETTING = "saml2.autoCreateUserDefaultGroup";
+	public static final String MAX_AUTHENTICATION_AGE = "saml2.maxAuthenticationAge";
 
     public void setPluginSettingsFactory(PluginSettingsFactory pluginSettingsFactory) {
         this.pluginSettings = pluginSettingsFactory.createGlobalSettings();
@@ -60,7 +61,15 @@ public class SAMLConfig {
     public void setAutoCreateUserDefaultGroup(String autoCreateUserDefaultGroup) {
         pluginSettings.put(AUTO_CREATE_USER_DEFAULT_GROUP_SETTING, autoCreateUserDefaultGroup);
     }
-
+	
+	public void setMaxAuthenticationAge(long maxAuthenticationAge) {
+		pluginSettings.put(MAX_AUTHENTICATION_AGE, maxAuthenticationAge);
+	}
+	
+	public long getMaxAuthenticationAge() {
+		return (long)pluginSettings.get(MAX_AUTHENTICATION_AGE);
+	}
+	
     public String getIdpRequired() {
         return StringUtils.defaultString((String)pluginSettings.get(IDP_REQUIRED_SETTING));
     }
@@ -103,7 +112,7 @@ public class SAMLConfig {
 
     public String getUidAttribute() {
         return StringUtils.defaultString((String)pluginSettings.get(UID_ATTRIBUTE_SETTING), "NameID");
-    }
+    }l
 
     public String getX509Certificate() {
         return StringUtils.defaultString((String)pluginSettings.get(X509_CERTIFICATE_SETTING));
