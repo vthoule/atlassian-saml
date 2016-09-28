@@ -115,6 +115,7 @@ public class SAMLConfig {
     public String getUidAttribute() {
         return StringUtils.defaultString((String)pluginSettings.get(UID_ATTRIBUTE_SETTING), "NameID");
     }
+	
 
     public String getX509Certificate() {
         return StringUtils.defaultString((String)pluginSettings.get(X509_CERTIFICATE_SETTING));
