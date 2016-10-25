@@ -3,6 +3,11 @@ All notable changes to this project will be documented in this file. [All Releas
 
 ## [Unreleased]
 ### Changed
+- TBD
+
+## [1.1.1] - 2016-10-25
+### Added
+- Max Authentication Age is now configurable
 - Start following [SemVer](http://semver.org) properly.
 
 ## [1.1] - 2016-02-18
@@ -16,5 +21,6 @@ All notable changes to this project will be documented in this file. [All Releas
 - Initial Release
 
 [unreleased]: https://github.com/bitium/atlassian-saml/tree/develop
+[1.1.1]: https://github.com/bitium/atlassian-saml/releases/tag/1.1.1
 [1.1]: https://github.com/bitium/atlassian-saml/releases/tag/1.1
 [1.0.1]: https://github.com/bitium/atlassian-saml/releases/tag/1.0.1
