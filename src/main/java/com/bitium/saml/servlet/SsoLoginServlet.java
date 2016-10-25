@@ -5,6 +5,7 @@ import com.bitium.saml.SAMLContext;
 import com.bitium.saml.config.SAMLConfig;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.opensaml.ws.transport.http.HttpServletRequestAdapter;
 import org.springframework.security.saml.SAMLCredential;
 import org.springframework.security.saml.context.SAMLMessageContext;
 import org.springframework.security.saml.util.SAMLUtil;
@@ -97,10 +98,11 @@ public abstract class SsoLoginServlet extends HttpServlet {
             // Process response
             context.getSamlProcessor().retrieveMessage(messageContext);
 
-            messageContext.setLocalEntityEndpoint(SAMLUtil.getEndpoint(messageContext.getLocalEntityRoleMetadata().getEndpoints(), messageContext.getInboundSAMLBinding(), request.getRequestURL().toString()));
+            messageContext.setLocalEntityEndpoint(SAMLUtil.getEndpoint(messageContext.getLocalEntityRoleMetadata().getEndpoints(), messageContext.getInboundSAMLBinding(), new HttpServletRequestAdapter(request)));
             messageContext.getPeerEntityMetadata().setEntityID(saml2Config.getIdpEntityId());
 
-            WebSSOProfileConsumer consumer = new WebSSOProfileConsumerImpl(context.getSamlProcessor(), context.getMetadataManager());
+            WebSSOProfileConsumerImpl consumer = new WebSSOProfileConsumerImpl(context.getSamlProcessor(), context.getMetadataManager());
+            consumer.setMaxAuthenticationAge(saml2Config.getMaxAuthenticationAge());
             credential = consumer.processAuthenticationResponse(messageContext);
 
             request.getSession().setAttribute("SAMLCredential", credential);
